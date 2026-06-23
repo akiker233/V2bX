@@ -273,15 +273,6 @@ EOF
     echo "V2bX uninstall    - 卸载 V2bX"
     echo "V2bX version      - 查看 V2bX 版本"
     echo "------------------------------------------"
-    # 累计安装次数统计
-    count_file="/etc/V2bX/.install_count"
-    count=1
-    if [[ -f "$count_file" ]]; then
-        count=$(cat "$count_file")
-        count=$((count + 1))
-    fi
-    echo "$count" > "$count_file"
-    echo -e "${green}本机累计安装次数：${count}${plain}"
     # 首次安装询问是否生成配置文件
     if [[ $first_install == true ]]; then
         read -rp "检测到你为第一次安装V2bX,是否自动直接生成配置文件？(y/n): " if_generate
